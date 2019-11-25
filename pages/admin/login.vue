@@ -53,6 +53,12 @@ export default {
       }
     };
   },
+  mounted() {
+    const { message } = this.$route.query;
+    if (message === "login") {
+      this.$message.warning('Для доступа к этой странице необходима авторизация!')
+    }
+  },
   methods: {
     onSubmit() {
       this.$refs.form.validate(async valid => {
@@ -66,8 +72,7 @@ export default {
             };
 
             await this.$store.dispatch("auth/login", formData);
-            this.$router.push('/admin');
-
+            this.$router.push("/admin");
           } catch (e) {
             this.loading = false;
           }
