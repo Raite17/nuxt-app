@@ -8,3 +8,4 @@ export default {
   middleware : ['admin-auth']
 }
 </script>
+
