@@ -43,7 +43,6 @@ class PostController {
         }
     }
 
-
     async update(req, res) {
         const $set = {
             text: req.body.text
@@ -52,6 +51,7 @@ class PostController {
             const post = await Post.findOneAndUpdate({
                 _id: req.params.id,
             }, { $set }, { new: true });
+            res.json(post)
         } catch (e) {
             res.status(500).json(e);
             consola.error(`Update post error: ${e.toString()}`);
