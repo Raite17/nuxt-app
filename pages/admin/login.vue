@@ -56,11 +56,14 @@ export default {
   mounted() {
     const { message } = this.$route.query;
     switch (message) {
-      case 'login':
-        this.$message.warning('Для доступа к этой странице необходима авторизация!');
+      case "login":
+        this.$message.warning("Для доступа к этой странице необходима авторизация!");
         break;
-      case 'logout':
-        this.$message.success('Вы вышли из системы!');
+      case "logout":
+        this.$message.success("Вы вышли из системы!");
+        break;
+      case "session":
+        this.$message.warning("Время сессии истекло, необходимо авторизоваться заново!");
         break;
     }
   },
